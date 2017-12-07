@@ -29,6 +29,10 @@
 		(hasspare)
 	)
 
-	(:goal (and (vehicle-at x01y05)))
+	(:goal 
+		(and 
+			(vehicle-at x01y05)
+		)
+	)
 
 )
