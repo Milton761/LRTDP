@@ -36,9 +36,10 @@ def lrtdp_trial(s, domainR, domain, problem, error, SOLVED,H, V):
 
 		if problem.goal.issubset(s):
 
-			print("GOAL FOUNDED")
+			print("Trial end in Goal State > new trial")
 			break
 
+		#print("choose action")
 		[a,P] = greedy_action(s,domainR,  domain, problem, H, V)
 
 		
@@ -51,7 +52,9 @@ def lrtdp_trial(s, domainR, domain, problem, error, SOLVED,H, V):
 
 
 		if s == False:
+			print("Trial end in Dead End > restart trial")
 			s = s0_source
+			
 
 		
 		if str(s) not in SOLVED.keys():
@@ -131,6 +134,7 @@ def greedy_action(s, domainR,  domain, problem, H, V):
 				if heuristics_type=="0":
 					H[str(s)] = 0
 				if heuristics_type=="h_ff":
+
 					H[str(s)] = h_ff(domainR, problem, s, problem.goal)
 				
 				if heuristics_type=="h_add":
